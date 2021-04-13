@@ -1,0 +1,76 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+{% if user.is_authenticated %}
+<style>
+	.login_btn {
+			width: 100%;
+			background: #000000 !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+		}
+</style>
+<div class="row">
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<div class="d-flex justify-content-center mt-3 login_container">
+                   		<a href="{% url 'edit_profile' %}"><input class="btn login_btn" id="Login" type="submit" value="Edit Profile"></a>
+                	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Change Password:</h5>
+            <hr>
+			<label for="form.email">Old Password:</label><input type="text" id="form.email">
+			<label for="form.email">New Password:</label><input type="text" id="form.email">
+			<label for="form.email">Confirm New Password:</label><input type="text" id="form.email">
+			<hr>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="">Update Password</a>
+
+        </div>
+    </div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Theme:</h5>
+			<hr>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="">Light Mode</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="">Dark Mode</a>
+			<h1 style="text-align: center;padding: 10px"></h1>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+
+			<form method="get">
+				{{myFilter.form}}
+
+		    <button class="btn btn-primary" type="submit">Save</button>
+		  </form>
+
+		</div>
+	</div>
+
+</div>
+<br>
+
+{% endblock %}

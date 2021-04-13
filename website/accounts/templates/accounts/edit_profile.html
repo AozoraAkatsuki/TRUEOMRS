@@ -1,0 +1,15 @@
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+{% block body %}
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <a href="/"> <button type="submit">Submit</button></a>
+</form>
+    <br>
+</div>
+
+{% endblock %}
